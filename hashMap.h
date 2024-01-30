@@ -15,6 +15,19 @@ hashMap* createHashMap(){
     return val;
 }
 
+void deleteHashMap(hashMap* hm){
+    for (int i = 0; i < hm->bucketCount; i++) {
+        value* temp = hm->buckets[i];
+        while (temp != NULL) {
+            value* prev = temp;
+            temp = temp->next;
+            free(prev);
+        }
+    }
+    free(hm->buckets);
+    free(hm);
+}
+
 value* lookUp(hashMap* hm, char* key){
     unsigned long hashValue = hash(key);
     unsigned long bucket = hashValue % hm->bucketCount;
