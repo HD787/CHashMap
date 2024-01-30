@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "privateFunctions.h"
 #include "hashMapStruct.h"
 
@@ -34,7 +35,7 @@ value* lookUp(hashMap* hm, char* key){
     value* temp =  hm->buckets[bucket];
     if(temp == NULL){
         printf("key not found (no bucket)");
-        return;
+        return NULL;
     } 
     else if(strcmp(temp->plainKey, key) == 0){
         return temp; 
@@ -44,7 +45,7 @@ value* lookUp(hashMap* hm, char* key){
     }
     if(temp->next == NULL){ 
         printf("key not found in bucket");
-        return;
+        return NULL;
     }
     return temp;
 }
