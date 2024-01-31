@@ -4,7 +4,7 @@ hashMap* createHashMap() - the hashMap struct returned will need to be passed in
 
 void deleteHashMap(hashMap* hm) - to cleanup memory
 
-value* lookUp(hashMap* hm, char* key) - search hash map for spesific key, value object has void pointer attribute called "data" which contains the data, cast this into expected data type
+value* lookUp(hashMap* hm, char* key) - search hash map for specific key, value object has void pointer attribute called "data" which contains the data, cast this into expected data type
 
 void insert(hashMap* hm, char* key, void* val) - how to add to hash map, pass in key and pointer to the data representing the value
 
