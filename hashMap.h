@@ -58,7 +58,6 @@ void insert(hashMap* hm, char* key, void* val, size_t dataSize){
         hm->buckets[bucket] = malloc(sizeof(value));
         hm->buckets[bucket]->data = malloc(dataSize);
         memcpy(hm->buckets[bucket]->data, val, dataSize);
-        hm->buckets[bucket]->data = val;
         hm->buckets[bucket]->dataSize = dataSize;
         hm->buckets[bucket]->plainKey = key;
         hm->buckets[bucket]->next = NULL;
