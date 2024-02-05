@@ -50,14 +50,16 @@ value* lookUp(hashMap* hm, char* key){
     return temp;
 }
 
-void insert(hashMap* hm, char* key, void* val){
+void insert(hashMap* hm, char* key, void* val, size_t dataSize){
     unsigned long hashValue = hash(key);
     unsigned long bucket = hashValue % hm->bucketCount;
     value* temp =  hm->buckets[bucket];
     if(temp == NULL){
         hm->buckets[bucket] = malloc(sizeof(value));
+        hm->buckets[bucket]->data = malloc(dataSize);
+        memcpy(hm->buckets[bucket]->data, val, dataSize);
         hm->buckets[bucket]->data = val;
-        hm->buckets[bucket]->dataSize = sizeof(val);
+        hm->buckets[bucket]->dataSize = dataSize;
         hm->buckets[bucket]->plainKey = key;
         hm->buckets[bucket]->next = NULL;
     }
@@ -66,8 +68,9 @@ void insert(hashMap* hm, char* key, void* val){
             temp = temp->next;
         };
         temp->next = malloc(sizeof(value));
-        temp->next->data = val;
-        temp->next->dataSize = sizeof(val);
+        temp->next->data = malloc(dataSize);
+        memcpy(temp->next->data, val, dataSize);
+        temp->next->dataSize = dataSize;
         temp->next->plainKey = key;
         temp->next->next = NULL;
     }
