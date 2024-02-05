@@ -12,7 +12,7 @@ hashMap* createHashMap(){
     hashMap* val = malloc(sizeof(hashMap) * DEFAULT_BUCKET_COUNT);
     val->bucketCount = DEFAULT_BUCKET_COUNT;
     val->elementCount = 0;
-    val->buckets = malloc(sizeof(value) * val->bucketCount);
+    val->buckets = malloc(sizeof(value*) * val->bucketCount);
     return val;
 }
 
