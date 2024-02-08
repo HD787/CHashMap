@@ -42,8 +42,9 @@ value* lookUp(hashMap* hm, char* key){
     }
     while(strcmp(temp->plainKey, key) != 0){
         temp = temp->next;
+        if (temp == NULL) break;
     }
-    if(temp->next == NULL){ 
+    if(temp == NULL){ 
         printf("key not found in bucket");
         return NULL;
     }
