@@ -4,13 +4,10 @@
 #include "privateFunctions.h"
 #include "hashMapStruct.h"
 
-//this may be replaced by a parameter, who knows?
-#define DEFAULT_BUCKET_COUNT 17
 
-
-hashMap* createHashMap(){
-    hashMap* val = malloc(sizeof(hashMap) * DEFAULT_BUCKET_COUNT);
-    val->bucketCount = DEFAULT_BUCKET_COUNT;
+hashMap* createHashMap(int bucketCount){
+    hashMap* val = malloc(sizeof(hashMap) * bucketCount);
+    val->bucketCount = bucketCount;
     val->elementCount = 0;
     val->buckets = malloc(sizeof(value*) * val->bucketCount);
     return val;

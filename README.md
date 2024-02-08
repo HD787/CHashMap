@@ -1,6 +1,6 @@
 Hash Map implementation
 
-hashMap* createHashMap() - the hashMap struct returned will need to be passed into any associated functions
+hashMap* createHashMap(int bucketCount) - the hashMap struct returned will need to be passed into any associated functions. bucketCount decides the size of the hashmap, the amount of buckets does not affect capacity, but should be about 20% larger than total expected values, a mostly full or overfilled hashmap will have more collisions and therefore worse performance.
 
 void deleteHashMap(hashMap* hm) - to cleanup memory
 
