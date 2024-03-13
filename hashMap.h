@@ -29,7 +29,7 @@ void deleteHashMap(hashMap* hm){
 value* lookUp(hashMap* hm, char* key){
     unsigned long hashValue = hash(key);
     unsigned long bucket = hashValue % hm->bucketCount;
-    value* temp =  hm->buckets[bucket];
+    value* temp = hm->buckets[bucket];
     if(temp == NULL){
         printf("key not found (no bucket)");
         return NULL;
