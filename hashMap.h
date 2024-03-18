@@ -59,6 +59,7 @@ void insert(hashMap* hm, char* key, void* val, size_t dataSize){
         hm->buckets[bucket]->dataSize = dataSize;
         hm->buckets[bucket]->plainKey = key;
         hm->buckets[bucket]->next = NULL;
+        hm->elementCount++;
     }
     else{
         while(temp->next != NULL){
@@ -70,5 +71,6 @@ void insert(hashMap* hm, char* key, void* val, size_t dataSize){
         temp->next->dataSize = dataSize;
         temp->next->plainKey = key;
         temp->next->next = NULL;
+        hm->elementCount++;
     }
 }
