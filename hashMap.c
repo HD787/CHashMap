@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "privateFunctions.h"
+#include "privateFunctions.c"
 #include "hashMapStruct.h"
 
 
